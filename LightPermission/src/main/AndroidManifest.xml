@@ -1,0 +1,13 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.mobibrw.light.permission">
+
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+
+    <application>
+        <activity
+            android:name=".biz.PermissionActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:exported="false"
+            android:theme="@style/Permission.Theme" />
+    </application>
+</manifest>

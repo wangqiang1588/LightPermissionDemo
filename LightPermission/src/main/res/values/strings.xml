@@ -1,0 +1,8 @@
+<resources>
+    <string name="prompt">提示</string>
+    <string name="settings">设置</string>
+    <string name="ok">确定</string>
+    <string name="success">成功</string>
+    <string name="fail">失败</string>
+    <string name="unknown">未知错误</string>
+</resources>

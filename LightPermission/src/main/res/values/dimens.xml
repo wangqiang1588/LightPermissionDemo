@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 1 px的值-->
+    <dimen name="pix_1">1px</dimen>
+</resources>

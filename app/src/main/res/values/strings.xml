@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">LightAndPermissionDemo</string>
+    <string name="permissions_read_contacts">测试读取联系人权限</string>
+    <string name="btn_read_contacts">测试读取联系人权限</string>
+    <string name="permissions_ble">测试读取联系人权限</string>
+    <string name="btn_ble">测试蓝牙权限</string>
+    <string name="permissions_location">测试读取定位权限</string>
+    <string name="btn_location">测试定位权限</string>
+    <string name="btn_task_affinity">测试亲和性</string>
+</resources>
