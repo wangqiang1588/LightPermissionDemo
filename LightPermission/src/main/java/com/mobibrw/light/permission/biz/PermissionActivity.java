@@ -45,7 +45,7 @@ public class PermissionActivity extends AppCompatActivity implements EasyPermiss
     public static void requirePermissions(@NonNull final Context c) {
         final Intent intent = new Intent(c, PermissionActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        c.startActivity(intent);
+        ActivityCompat.startActivity(c, intent, new Bundle());
     }
 
     @Override
@@ -96,11 +96,17 @@ public class PermissionActivity extends AppCompatActivity implements EasyPermiss
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 if (!PermissionHelper.bleEnabled()) {
-                    final Intent settingsIntent = new Intent(Settings.ACTION_BLUETOOTH_SETTINGS);
+                    final Intent intent = new Intent(Settings.ACTION_BLUETOOTH_SETTINGS);
+                    /*
+                     * 1. XiaoMi 10 MIUI 12.0.11 if use ActivityCompat.startActivity(activity, intent, null);  when we set breakpoint it works fine,but if we unset breakpoint ,it does not work
+                     * so we must use ActivityCompat.startActivity(activity, intent, new Bundle());
+                     *
+                     * 2. OnePlus 3 H2OS 9.0.3  ActivityCompat.startActivityForResult(activity, intent, PERMISSION_REQ_CODE, new Bundle()); does not back to caller activity,so we can't get activity result.
+                     * */
                     if (startActivityForResultEnable && (activity == PermissionActivity.this)) {
-                        ActivityCompat.startActivityForResult(activity, settingsIntent, PERMISSION_REQ_CODE, null);
+                        ActivityCompat.startActivityForResult(activity, intent, PERMISSION_REQ_CODE, new Bundle());
                     } else {
-                        ActivityCompat.startActivity(activity, settingsIntent, null);
+                        ActivityCompat.startActivity(activity, intent, new Bundle());
                         finish();
                     }
                 }
@@ -117,11 +123,17 @@ public class PermissionActivity extends AppCompatActivity implements EasyPermiss
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 if (!PermissionHelper.locationEnabled(activity)) {
-                    final Intent settingsIntent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+                    final Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+                    /*
+                     * 1. XiaoMi 10 MIUI 12.0.11 if use ActivityCompat.startActivity(activity, intent, null);  when we set breakpoint it works fine,but if we unset breakpoint ,it does not work
+                     * so we must use ActivityCompat.startActivity(activity, intent, new Bundle());
+                     *
+                     * 2. OnePlus 3 H2OS 9.0.3  ActivityCompat.startActivityForResult(activity, intent, PERMISSION_REQ_CODE, new Bundle()); does not back to caller activity,so we can't get activity result.
+                     * */
                     if (startActivityForResultEnable && (activity == PermissionActivity.this)) {
-                        ActivityCompat.startActivityForResult(activity, settingsIntent, PERMISSION_REQ_CODE, null);
+                        ActivityCompat.startActivityForResult(activity, intent, PERMISSION_REQ_CODE, new Bundle());
                     } else {
-                        ActivityCompat.startActivity(activity, settingsIntent, null);
+                        ActivityCompat.startActivity(activity, intent, new Bundle());
                         finish();
                     }
                 }
@@ -175,10 +187,16 @@ public class PermissionActivity extends AppCompatActivity implements EasyPermiss
         }
         // try if system page not exists
         try {
+            /*
+             * 1. XiaoMi 10 MIUI 12.0.11 if use ActivityCompat.startActivity(activity, intent, null);  when we set breakpoint it works fine,but if we unset breakpoint ,it does not work
+             * so we must use ActivityCompat.startActivity(activity, intent, new Bundle());
+             *
+             * 2. OnePlus 3 H2OS 9.0.3  ActivityCompat.startActivityForResult(activity, intent, PERMISSION_REQ_CODE, new Bundle()); does not back to caller activity,so we can't get activity result.
+             * */
             if (startActivityForResultEnable) {
-                ActivityCompat.startActivityForResult(activity, intent, PERMISSION_REQ_CODE, null);
+                ActivityCompat.startActivityForResult(activity, intent, PERMISSION_REQ_CODE, new Bundle());
             } else {
-                ActivityCompat.startActivity(activity, intent, null);
+                ActivityCompat.startActivity(activity, intent, new Bundle());
                 finish();
             }
         } catch (Throwable t) {
