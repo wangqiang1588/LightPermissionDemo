@@ -26,9 +26,9 @@ public class EquatableWeakReference<T> extends WeakReference<T> {
         Object strong_obj = get();
         if (obj instanceof Reference) {
             if (null != strong_obj) {
-                return strong_obj.equals(((Reference) obj).get());
+                return strong_obj.equals(((Reference<?>) obj).get());
             } else {
-                return null == ((Reference) obj).get();
+                return null == ((Reference<?>) obj).get();
             }
         } else {
             if (null != strong_obj) {
