@@ -165,8 +165,8 @@ class PermissionBizBu implements IPermissionApi, IPermissionBizApi, IActivityLis
     }
 
     @Override
-    public void unRegisterPermissionListener(@NonNull final IPermissionListener l) {
-        listenersManager.unRegisterListener(l);
+    public void unregisterPermissionListener(@NonNull final IPermissionListener l) {
+        listenersManager.unregisterListener(l);
     }
 
     @MainThread

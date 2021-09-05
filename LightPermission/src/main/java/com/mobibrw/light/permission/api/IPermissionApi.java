@@ -58,5 +58,5 @@ public interface IPermissionApi {
     boolean registerPermissionListener(@NonNull final IPermissionListener l);
 
     @MainThread
-    void unRegisterPermissionListener(@NonNull final IPermissionListener l);
+    void unregisterPermissionListener(@NonNull final IPermissionListener l);
 }

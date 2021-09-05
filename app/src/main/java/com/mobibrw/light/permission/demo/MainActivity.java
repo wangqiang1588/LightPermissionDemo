@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity implements IPermissionListen
 
     @Override
     protected void onDestroy() {
-        api.unRegisterPermissionListener(this);
+        api.unregisterPermissionListener(this);
         LightPermission.destroy(api);
         api = null;
         contactsPermission = null;

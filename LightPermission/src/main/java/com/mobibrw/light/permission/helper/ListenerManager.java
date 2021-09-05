@@ -31,7 +31,7 @@ public class ListenerManager<T> {
         return true;
     }
 
-    public boolean unRegisterListener(@NonNull final T listener) {
+    public boolean unregisterListener(@NonNull final T listener) {
         final EquatableWeakReference<T> equatableWeakListener = new EquatableWeakReference<>(listener);
         synchronized (lock) {
             if (!listeners.contains(equatableWeakListener)) {
